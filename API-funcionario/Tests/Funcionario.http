@@ -1,11 +1,11 @@
-### Cadastrar um novo funcionário
+### Cadastrar um novo funcionï¿½rio
 POST https://localhost:5001/api/funcionarios/create
 Content-Type: application/json
 
 {
-    "nome" : "João",
-    "funcao": "Programador""
+    "nome" : "Joï¿½o",
+    "funcao": "Programador"
 }
 
-### Listar todos os funcionários
+### Listar todos os funcionï¿½rios
 GET https://localhost:5001/api/funcionarios

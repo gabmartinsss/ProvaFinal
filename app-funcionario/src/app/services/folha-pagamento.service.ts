@@ -7,7 +7,7 @@ import { FolhaPagamento } from "../models/folha-pagamento";
     providedIn: "root",
 })
 export class FolhaPagamentoService {
-    private baseUrl = "https://localhost:5001/api/folha-pagamentos";
+    private baseUrl = "http://localhost:5000/api/folha-pagamentos";
 
     constructor(private http: HttpClient) {}
 
