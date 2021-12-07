@@ -1,4 +1,4 @@
-﻿using API.Data;
+using API.Data;
 using API.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -21,8 +21,8 @@ namespace API.Controllers
         [Route("create")]
         public IActionResult Create([FromBody] FolhaPagamento folhaPagamento)
         {
-            var folhaPagamentoExiste = _context.FolhasPagamentos.FirstOrDefault(f => f.FuncionarioId == folhaPagamento.FuncionarioId 
-            && f.CriadoEm.Month == folhaPagamento.CriadoEm.Month 
+            var folhaPagamentoExiste = _context.FolhasPagamentos.FirstOrDefault(f => f.FuncionarioId == folhaPagamento.FuncionarioId
+            && f.CriadoEm.Month == folhaPagamento.CriadoEm.Month
             && f.CriadoEm.Year == folhaPagamento.CriadoEm.Year);
             if (folhaPagamentoExiste == null)
             {

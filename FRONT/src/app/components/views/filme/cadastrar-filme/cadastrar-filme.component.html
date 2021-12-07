@@ -1,0 +1,49 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Cadastrar Filme</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-form-field class="input" id="nome">
+            <mat-label for="nome">Nome:</mat-label>
+            <input matInput type="text" name="nome" [(ngModel)]="nome" />
+        </mat-form-field>
+        <mat-form-field class="input" id="ano">
+            <mat-label for="ano">Ano:</mat-label>
+            <input
+                matInput
+                type="text"
+                name="ano"
+                [(ngModel)]="ano"
+            />
+        </mat-form-field>
+        <mat-form-field class="input" id="diretor">
+            <mat-label for="diretor">Diretor:</mat-label>
+            <input
+                matInput
+                type="text"
+                name="diretor"
+                [(ngModel)]="diretor"
+            />
+        </mat-form-field>
+        <mat-form-field class="input" id="bilheteria">
+            <mat-label for="bilheteria">Bilheteria:</mat-label>
+            <input matInput type="text" name="bilheteria" [(ngModel)]="bilheteria" />
+        </mat-form-field>
+        <mat-form-field class="input" id="categoria">
+            <mat-label for="categoria">Categoria:</mat-label>
+            <mat-select name="categoria" [(ngModel)]="categoriaId">
+                <mat-option
+                    *ngFor="let categoria of categorias"
+                    value="{{ categoria.id }}"
+                >
+                    {{ categoria.nome }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </mat-card-content>
+    <button mat-raised-button color="warn" (click)="create()">Cadastrar</button>
+</mat-card>
+
+
+
+

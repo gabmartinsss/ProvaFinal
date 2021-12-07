@@ -1,0 +1,12 @@
+###
+POST https://localhost:5001/api/folha-pagamentos/create
+Content-Type: application/json
+
+{
+  "funcionaroId": 1,
+  "quantidadeHorasTrabalhadas": 160,
+  "valorHora": 35.0,
+}
+
+###
+GET https://localhost:5001/api/folha-pagamentos/list

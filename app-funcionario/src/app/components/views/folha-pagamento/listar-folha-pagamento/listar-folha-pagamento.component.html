@@ -1,0 +1,67 @@
+<a mat-raised-button color="primary" routerLink="/folha-pagamento/cadastrar">
+    <mat-icon mat-list-icon>add</mat-icon>
+    Nova Folha de Pagamento</a
+>
+
+<table mat-table [dataSource]="matT" class="mat-elevation-z8">
+    <!-- Coluna do Id -->
+    <ng-container matColumnDef="folhaPagamentoId">
+        <th mat-header-cell *matHeaderCellDef>#</th>
+        <td mat-cell *matCellDef="let folhaPagamento">{{ folhaPagamento.folhaPagamentoId }}</td>
+    </ng-container>
+    <!-- Coluna do Funcionário -->
+    <ng-container matColumnDef="funcionario">
+        <th mat-header-cell *matHeaderCellDef>Funcionário</th>
+        <td mat-cell *matCellDef="let folhaPagamento">{{ folhaPagamento.funcionario.nome }}</td>
+    </ng-container>
+    <!-- Coluna da Quantidades Horas trabalhadas -->
+    <ng-container matColumnDef="quantidadeHorasTrabalhadas">
+        <th mat-header-cell *matHeaderCellDef>Qtd. Horas Trabalhadas</th>
+        <td mat-cell *matCellDef="let folhaPagamento">{{ folhaPagamento.quantidadeHorasTrabalhadas }}</td>
+    </ng-container>
+
+    <!-- Coluna do valor da hora -->
+    <ng-container matColumnDef="valorHora">
+        <th mat-header-cell *matHeaderCellDef>Valor Hora</th>
+        <td mat-cell *matCellDef="let folhaPagamento">{{ folhaPagamento.valorHora | currency: 'BRL' }}</td>
+    </ng-container>
+
+    <!-- Coluna do salário bruto -->
+    <ng-container matColumnDef="salarioBruto">
+        <th mat-header-cell *matHeaderCellDef>Salário Bruto</th>
+        <td mat-cell *matCellDef="let folhaPagamento">{{ calculaSalarioBruto(folhaPagamento.quantidadeHorasTrabalhadas, folhaPagamento.valorHora) | currency: 'BRL' }}</td>
+    </ng-container>
+
+    <!-- Coluna do Imposto de Renda -->
+    <ng-container matColumnDef="impostoRenda">
+        <th mat-header-cell *matHeaderCellDef>Imposto de Renda</th>
+        <td mat-cell *matCellDef="let folhaPagamento">{{ calculaImpostoRenda(folhaPagamento.quantidadeHorasTrabalhadas, folhaPagamento.valorHora) | currency: 'BRL' }}</td>
+    </ng-container>
+
+    <!-- Coluna do INSS -->
+    <ng-container matColumnDef="inss">
+        <th mat-header-cell *matHeaderCellDef>INSS</th>
+        <td mat-cell *matCellDef="let folhaPagamento">{{ calculaInss(folhaPagamento.quantidadeHorasTrabalhadas, folhaPagamento.valorHora) | currency: 'BRL' }}</td>
+    </ng-container>
+
+    <!-- Coluna do FGTS -->
+    <ng-container matColumnDef="fgts">
+        <th mat-header-cell *matHeaderCellDef>FGTS</th>
+        <td mat-cell *matCellDef="let folhaPagamento">{{ calculaFgts(folhaPagamento.quantidadeHorasTrabalhadas, folhaPagamento.valorHora) | currency: 'BRL' }}</td>
+    </ng-container>
+
+    <!-- Coluna do Salário liquido -->
+    <ng-container matColumnDef="salarioLiquido">
+        <th mat-header-cell *matHeaderCellDef>Salário Liquido</th>
+        <td mat-cell *matCellDef="let folhaPagamento">{{ calculaSalarioLiquido(folhaPagamento.quantidadeHorasTrabalhadas, folhaPagamento.valorHora) | currency: 'BRL' }}</td>
+    </ng-container>
+
+    <!-- Coluna da data de criação -->
+    <ng-container matColumnDef="data">
+        <th mat-header-cell *matHeaderCellDef>Mês/Ano</th>
+        <td mat-cell *matCellDef="let folhaPagamento">{{ formatData(folhaPagamento.mes, folhaPagamento.ano)}}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="colunasExibidas"></tr>
+    <tr mat-row *matRowDef="let row; columns: colunasExibidas"></tr>
+</table>

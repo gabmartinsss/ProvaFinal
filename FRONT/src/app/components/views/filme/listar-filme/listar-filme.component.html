@@ -1,0 +1,40 @@
+<a mat-raised-button color="warn" routerLink="/filme/cadastrar">
+    <mat-icon> add </mat-icon>
+    Filmes
+</a>
+<table mat-table [dataSource]="filmes" class="table mat-elevation-z8">
+    <!-- Coluna do Id -->
+    <ng-container matColumnDef="id">
+        <th class="header" mat-header-cell *matHeaderCellDef>#</th>
+        <td mat-cell *matCellDef="let filme">{{ filme.id }}</td>
+    </ng-container>
+    <!-- Coluna do Nome -->
+    <ng-container matColumnDef="nome">
+        <th class="header" mat-header-cell *matHeaderCellDef>Nome</th>
+        <td mat-cell *matCellDef="let filme">{{ filme.nome }}</td>
+    </ng-container>
+    <!-- Coluna do Ano -->
+    <ng-container matColumnDef="ano">
+        <th class="header" mat-header-cell *matHeaderCellDef>Ano</th>
+        <td mat-cell *matCellDef="let filme">{{ filme.ano}}</td>
+    </ng-container>
+    <!-- Coluna do Diretor -->
+    <ng-container matColumnDef="diretor">
+        <th class="header" mat-header-cell *matHeaderCellDef>Diretor</th>
+        <td mat-cell *matCellDef="let filme">{{ filme.diretor }}</td>
+    </ng-container>
+    <!-- Coluna do Bilheteria -->
+    <ng-container matColumnDef="bilheteria">
+        <th class="header" mat-header-cell *matHeaderCellDef>Bilheteria</th>
+        <td mat-cell *matCellDef="let filme">{{ filme.bilheteria }}</td>
+    </ng-container>
+    <!-- Coluna do Categoria -->
+    <ng-container matColumnDef="categoria">
+        <th class="header" mat-header-cell *matHeaderCellDef>Categoria</th>
+        <td mat-cell *matCellDef="let filme">
+            {{ filme.categoria!.nome }}
+        </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="colunasExibidas"></tr>
+    <tr mat-row *matRowDef="let row; columns: colunasExibidas"></tr>
+</table>

@@ -1,0 +1,30 @@
+<a mat-raised-button color="primary" routerLink="/funcionario/cadastrar">
+    <mat-icon mat-list-icon>add</mat-icon>
+    Novo Funcionário</a
+>
+
+<table mat-table [dataSource]="matT" class="mat-elevation-z8">
+    <!-- Coluna do Id -->
+    <ng-container matColumnDef="funcionarioId">
+        <th mat-header-cell *matHeaderCellDef>#</th>
+        <td mat-cell *matCellDef="let funcionario">{{ funcionario.funcionarioId }}</td>
+    </ng-container>
+    <!-- Coluna do Nome -->
+    <ng-container matColumnDef="nome">
+        <th mat-header-cell *matHeaderCellDef>Nome</th>
+        <td mat-cell *matCellDef="let funcionario">{{ funcionario.nome }}</td>
+    </ng-container>
+    <!-- Coluna da Função -->
+    <ng-container matColumnDef="funcao">
+        <th mat-header-cell *matHeaderCellDef>Função</th>
+        <td mat-cell *matCellDef="let funcionario">{{ funcionario.funcao }}</td>
+    </ng-container>
+    <!-- Coluna da Data de criação -->
+    <ng-container matColumnDef="criadoEm">
+        <th mat-header-cell *matHeaderCellDef>Criado em: </th>
+        <td mat-cell *matCellDef="let funcionario">{{ funcionario.criadoEm | date: 'dd/MM/yyyy' }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="colunasExibidas"></tr>
+    <tr mat-row *matRowDef="let row; columns: colunasExibidas"></tr>
+</table>

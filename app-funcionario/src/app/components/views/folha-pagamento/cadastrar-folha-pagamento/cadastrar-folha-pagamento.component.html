@@ -1,0 +1,38 @@
+<mat-card>
+    <span class="msg-error" *ngIf="msgError">{{msgError}}</span>
+    <mat-card-header>
+        <mat-card-title>Cadastrar Folha de Pagamento</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-form-field class="input" id="funcionario">
+            <mat-label for="funcionario">Funcionário:</mat-label>
+            <mat-select name="funcionario" [(ngModel)]="funcionarioId">
+                <mat-option
+                    *ngFor="let funcionario of funcionarios"
+                    value="{{ funcionario.funcionarioId }}"
+                >
+                    {{ funcionario.nome }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="input" id="quantidadeHorasTrabalhadas">
+            <mat-label for="quantidadeHorasTrabalhadas">Qtd. Horas Trabalhadas:</mat-label>
+            <input matInput type="number" name="quantidadeHorasTrabalhadas" [(ngModel)]="quantidadeHorasTrabalhadas" />
+        </mat-form-field>
+        <mat-form-field class="input" id="valorHora">
+            <mat-label for="valorHora">Valor Hora</mat-label>
+            <input matInput type="number" name="valorHora" [(ngModel)]="valorHora" />
+        </mat-form-field>
+        <mat-form-field class="input" id="mes">
+            <mat-label for="mes">Mês</mat-label>
+            <input matInput type="number" name="mes" [(ngModel)]="mes" />
+        </mat-form-field>
+        <mat-form-field class="input" id="ano">
+            <mat-label for="ano">Ano</mat-label>
+            <input matInput type="number" name="ano" [(ngModel)]="ano" />
+        </mat-form-field>
+    </mat-card-content>
+    <button mat-raised-button color="warn" (click)="cadastrar()">
+        Cadastrar
+    </button>
+</mat-card>

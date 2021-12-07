@@ -8,4 +8,4 @@ Content-Type: application/json
 }
 
 ### Listar todos os funcionarios
-GET https://localhost:5001/api/funcionarios
+GET https://localhost:5001/api/funcionarios/list
