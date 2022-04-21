@@ -24,7 +24,7 @@ _ _ _
 ### ANGULAR
 Necessário estar com o [Node.js](https://nodejs.org/en/) e [NPM](https://docs.npmjs.com/cli/v7/commands/npm-install) instalados.
 ```bash
-# Acesse a pasta da FRONT
+# Acesse a pasta do FRONT
 $ cd .ProvaFinal/app-funcionario/
 
 # Restaure as dependencias do projeto
